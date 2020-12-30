@@ -6,6 +6,11 @@ const StyledLibrary = styled.section`
     color: white;
     overflow: auto;
     padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
 `;
 
 export default StyledLibrary;
