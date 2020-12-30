@@ -1,11 +1,8 @@
 import StyledPoster from "./Poster.style"
 
-const Poster = ({ imagePath }) => {
-    const baseImgUrl = 'http://image.tmdb.org/t/p/';
-    const backdropSize = 'w300';
-
+const Poster = ({ img }) => {
     return (
-        <StyledPoster>
+        <StyledPoster img={img}>
         </StyledPoster>
     )
 }
