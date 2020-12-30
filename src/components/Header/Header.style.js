@@ -5,6 +5,7 @@ const StyledHeader = styled.header`
     background-color: #24292e;
     text-align: center;
     border-bottom: 5px solid #1b8230;
+    height: 70px;
 `;
 
 export default StyledHeader;
