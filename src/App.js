@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <StyledBody>
+      <StyledBody role="main">
         <LeftPanel/>
         <Library/>
       </StyledBody>
