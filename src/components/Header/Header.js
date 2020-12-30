@@ -1,8 +1,16 @@
+import StyledHeader from "./Header.style";
+import styled from 'styled-components';
+
+const StyledH1 = styled.h1`
+    margin: 0;
+    padding: 15px;
+`;
+
 const Header = () => {
     return (
-        <header>
-            <h1>Movie Night</h1>
-        </header>
+        <StyledHeader>
+            <StyledH1>Movie Night</StyledH1>
+        </StyledHeader>
     );
 }
 
