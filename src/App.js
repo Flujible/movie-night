@@ -1,9 +1,13 @@
 import './App.css';
 import Header from './components/Header/Header';
+import LeftPanel from './components/LeftPanel/LeftPanel';
 
 function App() {
   return (
-    <Header/>
+    <div className="App">
+      <Header/>
+      <LeftPanel/>
+    </div>
   );
 }
 
