@@ -7,6 +7,7 @@ import Library from './components/Library/Library';
 function App() {
   const [popularMovies, setPopularMovies] = useState([]);
   const [chosenMovies, setChosenMovies] = useState([]);
+  const [lastPageRequested, setLastPageRequested] = useState(1);
 
   const handleAddChosenMovie = (movie) => {
     const isExisting = chosenMovies.find(chosenMovie => chosenMovie.id === movie.id);
@@ -19,6 +20,14 @@ function App() {
     const movieIndex = chosenMovies.indexOf(movie);
     chosenMovies.splice(movieIndex, 1);
     setChosenMovies([...chosenMovies]);
+  }
+
+  const handleLoadMoreMovies = () => {
+    const nextPage = lastPageRequested + 1
+    requestMovies(nextPage)
+      .then(res => res.json())
+      .then(movies => setPopularMovies([...popularMovies, ...movies.results]))
+    setLastPageRequested(nextPage);
   }
 
   const requestMovies = (pageNo) => {
@@ -46,7 +55,8 @@ function App() {
           onRemove={handleRemoveMovie}/>
         <Library
           movies={popularMovies}
-          onAddChosenMovie={handleAddChosenMovie}/>
+          onAddChosenMovie={handleAddChosenMovie}
+          onLoadMoreMovies={handleLoadMoreMovies}/>
       </div>
     </div>
   );

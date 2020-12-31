@@ -1,6 +1,6 @@
 import Poster from "../Poster/Poster";
 
-const Library = ({ movies, onAddChosenMovie }) => {
+const Library = ({ movies, onAddChosenMovie, onLoadMoreMovies }) => {
     const handleAddMovie = (movieId) => {
         const movieObj = movies.find(movie => movie.id === parseInt(movieId));
         onAddChosenMovie(movieObj);
@@ -29,6 +29,9 @@ const Library = ({ movies, onAddChosenMovie }) => {
     return (
         <section className="Library">
             {posters}
+            <button
+                className="load-more"
+                onClick={onLoadMoreMovies}>Load more movies</button>
         </section>
     )
 }
