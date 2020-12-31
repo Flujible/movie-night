@@ -2,11 +2,40 @@
     width: 300px;
     background-color: #24292e;
     color: white;
-    border-right: 5px solid #1b8230;
+    border-right: 1px solid #1b82309c;
     overflow-y: auto;
+    padding: 15px;
 
     h2 {
-        margin: 0;
-        padding: 15px;
+        margin: 15px 0 0 0;
     }
+
+    .movie-item {
+        margin: 30px 0 0 0;
+        display: flex;
+        justify-content: space-between;
+        
+        .movie-title {
+            margin: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 260px;
+            overflow: hidden;
+        }
+
+        .remove-movie {
+            width: 15px;
+            height: 15px;
+            padding: 0;
+            border: none;
+            border-radius: 3px;
+            background-color: transparent;
+            svg {
+                width: inherit;
+                height: inherit;
+                filter: invert(1);
+            }
+        }
+    }
+
 }

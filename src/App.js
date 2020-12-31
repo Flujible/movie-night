@@ -15,6 +15,12 @@ function App() {
     }
   }
 
+  const handleRemoveMovie = (movie) => {
+    const movieIndex = chosenMovies.indexOf(movie);
+    chosenMovies.splice(movieIndex, 1);
+    setChosenMovies([...chosenMovies]);
+  }
+
   useEffect(() => {
     const popularMovieURL = new URL("https://api.themoviedb.org/3/movie/popular");
     popularMovieURL.search = new URLSearchParams({"api_key": process.env.REACT_APP_TMDB_KEY, "language": "en-GB"});
@@ -32,7 +38,8 @@ function App() {
       <Header/>
       <div className="content" role="main">
         <LeftPanel
-          chosenMovies={chosenMovies}/>
+          chosenMovies={chosenMovies}
+          onRemove={handleRemoveMovie}/>
         <Library
           movies={popularMovies}
           onAddChosenMovie={handleAddChosenMovie}/>
