@@ -1,9 +1,9 @@
-import StyledPoster from "./Poster.style"
-
-const Poster = ({ img }) => {
+const Poster = ({ img, title, rating, overview }) => {
     return (
-        <StyledPoster img={img}>
-        </StyledPoster>
+        <div
+            className="Poster"
+            style={{backgroundImage: `url(${img})`}}>
+        </div>
     )
 }
 

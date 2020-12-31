@@ -1,4 +1,3 @@
-import StyledLibrary from "./Library.style";
 import Poster from "../Poster/Poster";
 import { useEffect, useState } from "react";
 
@@ -24,9 +23,9 @@ const Library = () => {
     ));
 
     return (
-        <StyledLibrary>
+        <section className="Library">
             {posters}
-        </StyledLibrary>
+        </section>
     )
 }
 

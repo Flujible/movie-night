@@ -1,17 +1,9 @@
-import StyledPanel from "./LeftPanel.style";
-import styled from 'styled-components';
-
-const StyledH2 = styled.h2`
-    margin: 0;
-    padding: 15px;
-`;
-
-const Header = () => {
+const LeftPanel = () => {
     return (
-        <StyledPanel>
-            <StyledH2>My night</StyledH2>
-        </StyledPanel>
+        <section className="LeftPanel">
+            <h2>My night</h2>
+        </section>
     );
 }
 
-export default Header;
+export default LeftPanel;

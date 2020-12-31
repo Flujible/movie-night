@@ -1,11 +1,12 @@
-import styled from 'styled-components';
-
-const StyledHeader = styled.header`
+.Header {
     color: white;
     background-color: #24292e;
     text-align: center;
     border-bottom: 5px solid #1b8230;
     height: 70px;
-`;
 
-export default StyledHeader;
+    h1 {
+        margin: 0;
+        padding: 15px;
+    }
+}
