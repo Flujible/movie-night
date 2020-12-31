@@ -19,7 +19,10 @@ const Library = () => {
     const posters = popularMovies.map(movie => (
         <Poster 
             key={movie.id}    
-            img={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}/>
+            img={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+            title={movie.title}
+            rating={movie.vote_average}
+            overview={movie.overview}/>
     ));
 
     return (
