@@ -29,7 +29,7 @@ const LeftPanel = ({ chosenMovies, onRemove }) => {
 
     return (
         <section className="LeftPanel">
-            <h2>My night</h2>
+            <h2>My list</h2>
             {movies}
         </section>
     );

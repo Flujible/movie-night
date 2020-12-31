@@ -7,7 +7,9 @@
     padding: 15px;
 
     h2 {
-        margin: 15px 0 0 0;
+        font-size: 2em;
+        margin: 0;
+        letter-spacing: 3px;
     }
 
     .movie-item {
@@ -21,6 +23,7 @@
             text-overflow: ellipsis;
             max-width: 260px;
             overflow: hidden;
+            letter-spacing: 1px;
         }
 
         .remove-movie {
