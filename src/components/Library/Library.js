@@ -1,29 +1,29 @@
 import Poster from "../Poster/Poster";
-import { useEffect, useState } from "react";
 
-const Library = () => {
-    const [popularMovies, setPopularMovies] = useState([]);
-    const popularMovieURL = new URL("https://api.themoviedb.org/3/movie/popular");
-    popularMovieURL.search = new URLSearchParams({"api_key": process.env.REACT_APP_TMDB_KEY, "language": "en-GB"});
-    const popularMovieRequest = new Request(popularMovieURL, {
-        method: 'GET',
-        mode: 'cors',
-    });
+const Library = ({ movies, onAddChosenMovie }) => {
+    const handleAddMovie = (movieId) => {
+        onAddChosenMovie(movieId);
+    }
 
-    useEffect(() => {
-        fetch(popularMovieRequest)
-            .then(res => res.json())
-            .then(movies => setPopularMovies(movies.results));
-    }, []);
+    const createPosters = (movies) => {
+        // Movies is a set not an array, sets do not have a map prototype method
+        const posters = [];
+        movies.forEach(movie => {
+            posters.push((
+                <Poster 
+                    key={movie.id}
+                    movieId={movie.id}  
+                    img={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+                    title={movie.title}
+                    rating={movie.vote_average}
+                    overview={movie.overview}
+                    onAddMovie={handleAddMovie}/>
+            ));
+        });
+        return posters;
+    }
 
-    const posters = popularMovies.map(movie => (
-        <Poster 
-            key={movie.id}    
-            img={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-            title={movie.title}
-            rating={movie.vote_average}
-            overview={movie.overview}/>
-    ));
+    const posters = createPosters(movies);
 
     return (
         <section className="Library">
