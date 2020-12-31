@@ -11,11 +11,11 @@ const LeftPanel = ({ chosenMovies, onRemove }) => {
 
         const makeMoviesArray = (chosenMovies) => {
             return chosenMovies.map(movie => (
-                <div 
+                <div
                     key={movie.id}
                     className="movie-item">
                     <p className="movie-title">{movie.title}</p>
-                    <button 
+                    <button
                         className="remove-movie"
                         onClick={(e) => handleRemove(movie, e)}>
                         <Cross alt={`Remove ${movie.title} from list`}/>

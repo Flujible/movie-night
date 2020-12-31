@@ -1,5 +1,4 @@
 const Poster = ({ movieId, img, title, rating, overview, onAddMovie }) => {
-    
     const handleClick = (event) => {
         const chosenMovie = event.target.id;
         onAddMovie(chosenMovie);
@@ -16,7 +15,7 @@ const Poster = ({ movieId, img, title, rating, overview, onAddMovie }) => {
                         <p className="overview">{overview}</p>
                     </div>
                     <div className="button-container">
-                        <button 
+                        <button
                             className="add-to-list"
                             id={movieId}
                             onClick={handleClick}>Add to my list</button>

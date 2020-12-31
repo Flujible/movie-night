@@ -11,9 +11,9 @@ const Library = ({ movies, onAddChosenMovie }) => {
         const posters = [];
         movies.forEach(movie => {
             posters.push((
-                <Poster 
+                <Poster
                     key={movie.id}
-                    movieId={movie.id}  
+                    movieId={movie.id}
                     img={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
                     title={movie.title}
                     rating={movie.vote_average}
