@@ -2,7 +2,8 @@ import Poster from "../Poster/Poster";
 
 const Library = ({ movies, onAddChosenMovie }) => {
     const handleAddMovie = (movieId) => {
-        onAddChosenMovie(movieId);
+        const movieObj = movies.find(movie => movie.id === parseInt(movieId));
+        onAddChosenMovie(movieObj);
     }
 
     const createPosters = (movies) => {

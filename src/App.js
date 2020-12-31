@@ -9,7 +9,7 @@ function App() {
   const [chosenMovies, setChosenMovies] = useState([]);
 
   const handleAddChosenMovie = (movie) => {
-    const isExisting = chosenMovies.find(chosenMovie => chosenMovie === movie);
+    const isExisting = chosenMovies.find(chosenMovie => chosenMovie.id === movie.id);
     if (!isExisting) {
       setChosenMovies([...chosenMovies, movie]);
     }
