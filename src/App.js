@@ -6,6 +6,15 @@ import Library from './components/Library/Library';
 
 function App() {
   const [popularMovies, setPopularMovies] = useState([]);
+  const [chosenMovies, setChosenMovies] = useState([]);
+
+  const handleAddChosenMovie = (movie) => {
+    const isExisting = chosenMovies.find(chosenMovie => chosenMovie === movie);
+    if (!isExisting) {
+      setChosenMovies([...chosenMovies, movie]);
+    }
+  }
+
   useEffect(() => {
     const popularMovieURL = new URL("https://api.themoviedb.org/3/movie/popular");
     popularMovieURL.search = new URLSearchParams({"api_key": process.env.REACT_APP_TMDB_KEY, "language": "en-GB"});
@@ -23,6 +32,7 @@ function App() {
       <Header/>
       <div className="content" role="main">
           movies={popularMovies}
+          onAddChosenMovie={handleAddChosenMovie}/>
       </div>
     </div>
   );
