@@ -21,16 +21,20 @@ function App() {
     setChosenMovies([...chosenMovies]);
   }
 
-  useEffect(() => {
+  const requestMovies = (pageNo) => {
     const popularMovieURL = new URL("https://api.themoviedb.org/3/movie/popular");
-    popularMovieURL.search = new URLSearchParams({"api_key": process.env.REACT_APP_TMDB_KEY, "language": "en-GB"});
+    popularMovieURL.search = new URLSearchParams({"api_key": process.env.REACT_APP_TMDB_KEY, "language": "en-GB", page: pageNo});
     const popularMovieRequest = new Request(popularMovieURL, {
         method: 'GET',
         mode: 'cors',
     });
-    fetch(popularMovieRequest)
-        .then(res => res.json())
-        .then(movies => setPopularMovies(movies.results));
+    return fetch(popularMovieRequest)
+  }
+
+  useEffect(() => {
+    requestMovies(lastPageRequested)
+      .then(res => res.json())
+      .then(movies => setPopularMovies([...popularMovies, ...movies.results]));
   }, []);
 
   return (
