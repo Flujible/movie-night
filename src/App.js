@@ -31,6 +31,9 @@ function App() {
     <div className="App">
       <Header/>
       <div className="content" role="main">
+        <LeftPanel
+          chosenMovies={chosenMovies}/>
+        <Library
           movies={popularMovies}
           onAddChosenMovie={handleAddChosenMovie}/>
       </div>
